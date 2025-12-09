@@ -3,7 +3,8 @@ import axios from "axios";
 // ROOM APIS
 const ROOM_BASE_URL =
   // "https://xqmkevnwsc.execute-api.ca-central-1.amazonaws.com/dev/rooms";
-  "http://localhost:3004/rooms";
+  // "http://localhost:3004/rooms";
+  "https://aws-rbs.onrender.com/rooms";
 
 export const getAllRooms = async () => {
   try {
@@ -93,7 +94,8 @@ export const getBuildingIdsByCities = async () => {
 // BOOKING APIS
 const BOOKING_BASE_URL =
   // "https://y1r7rljup0.execute-api.ca-central-1.amazonaws.com/dev";
-  "http://localhost:3004";
+  // "http://localhost:3004";
+  "https://aws-rbs.onrender.com";
 
 export const getMultiSearch = async (userId, requestBody) => {
   try {
@@ -270,7 +272,8 @@ export const activateBookingById = async (bookingId) => {
 
 // USERS API
 const EMPLOYEE_BASE_URL =
-  "http://localhost:3004/users";
+  // "http://localhost:3004/users";
+  "https://aws-rbs.onrender.com/users";
 
 function processUserDetails(data) {
   const processedData = data.results.map((item) => {
