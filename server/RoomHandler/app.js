@@ -17,7 +17,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 // const cors = require("cors");
 // declare a new express app
-const app = express();
+const app = express.Router();
 app.use(bodyParser.json());
 // app.use(awsServerlessExpressMiddleware.eventContext());
 
@@ -41,10 +41,10 @@ app.use(function (req, res, next) {
 let dbConnection;
 function createDBConnection(dbName) {
   const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
+    host: "database-1.ctmy404ewhow.ca-central-1.rds.amazonaws.com",
+    user: "admin",
     password: "password",
-    database: "localserver"
+    database: "database1"
   });
 
   return connection;
@@ -734,7 +734,7 @@ app.put("/rooms/edit", function (req, res) {
   const floor_number = req.body.floor_number;
   const building_number = req.body.building_number;
   const facility_id = req.body.facility_id;
-  console.log(facility_id+"khjhaksf");
+  console.log(facility_id + "khjhaksf");
   async function handleRoomEdit() {
     try {
       await dbConnection.promise().beginTransaction();
@@ -746,7 +746,7 @@ app.put("/rooms/edit", function (req, res) {
           .json({ message: `Room being edited is not in database ${room_id}` });
       }
       var city_id = await getCityId(airport_code);
-      console.log(city_id+"kjh");
+      console.log(city_id + "kjh");
       if (city_id == 0) {
         await dbConnection.promise().rollback();
         return res.status(500).json({
@@ -901,10 +901,10 @@ app.get("/rooms/getCities", function (req, res) {
   });
 });
 
-app.get("/rooms/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "get call succeed!", url: req.url });
-});
+// app.get("/rooms/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "get call succeed!", url: req.url });
+// });
 
 /****************************
  * Example post method *
@@ -915,10 +915,10 @@ app.post("/rooms", function (req, res) {
   res.json({ success: "post call succeed!", url: req.url, body: req.body });
 });
 
-app.post("/rooms/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "post call succeed!", url: req.url, body: req.body });
-});
+// app.post("/rooms/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "post call succeed!", url: req.url, body: req.body });
+// });
 
 /****************************
  * Example put method *
@@ -929,10 +929,10 @@ app.put("/rooms", function (req, res) {
   res.json({ success: "put call succeed!", url: req.url, body: req.body });
 });
 
-app.put("/rooms/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "put call succeed!", url: req.url, body: req.body });
-});
+// app.put("/rooms/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "put call succeed!", url: req.url, body: req.body });
+// });
 
 /****************************
  * Example delete method *
@@ -943,10 +943,10 @@ app.delete("/rooms", function (req, res) {
   res.json({ success: "delete call succeed!", url: req.url });
 });
 
-app.delete("/rooms/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "delete call succeed!", url: req.url });
-});
+// app.delete("/rooms/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "delete call succeed!", url: req.url });
+// });
 
 // app.listen(3004, function () {
 //   console.log("App started");

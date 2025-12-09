@@ -1,6 +1,6 @@
 /* Amplify Params - DO NOT EDIT
-	ENV
-	REGION
+  ENV
+  REGION
 Amplify Params - DO NOT EDIT */ /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -16,7 +16,7 @@ const mysql = require("mysql2");
 // const { createDBConnection } = require("/opt/connection");
 
 // declare a new express app
-const app = express();
+const app = express.Router();
 app.use(bodyParser.json());
 // app.use(awsServerlessExpressMiddleware.eventContext());
 // app.use(cors());
@@ -31,10 +31,10 @@ app.use(function (req, res, next) {
 
 function createDBConnection(dbName) {
   const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
+    host: "database-1.ctmy404ewhow.ca-central-1.rds.amazonaws.com",
+    user: "admin",
     password: "password",
-    database: "localserver"
+    database: "database1"
   });
 
   return connection;
@@ -364,10 +364,10 @@ app.post("/users", function (req, res) {
   res.json({ success: "post call succeed!", url: req.url, body: req.body });
 });
 
-app.post("/users/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "post call succeed!", url: req.url, body: req.body });
-});
+// app.post("/users/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "post call succeed!", url: req.url, body: req.body });
+// });
 
 /****************************
  * Example put method *
@@ -378,10 +378,10 @@ app.put("/users", function (req, res) {
   res.json({ success: "put call succeed!", url: req.url, body: req.body });
 });
 
-app.put("/users/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "put call succeed!", url: req.url, body: req.body });
-});
+// app.put("/users/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "put call succeed!", url: req.url, body: req.body });
+// });
 
 /****************************
  * Example delete method *
@@ -392,10 +392,10 @@ app.delete("/users", function (req, res) {
   res.json({ success: "delete call succeed!", url: req.url });
 });
 
-app.delete("/users/*", function (req, res) {
-  // Add your code here
-  res.json({ success: "delete call succeed!", url: req.url });
-});
+// app.delete("/users/*", function (req, res) {
+//   // Add your code here
+//   res.json({ success: "delete call succeed!", url: req.url });
+// });
 
 // app.listen(3000, function () {
 //   console.log("App started");

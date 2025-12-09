@@ -7,7 +7,7 @@ import {
   useTheme,
   View,
 } from "@aws-amplify/ui-react";
-import config from "./amplifyconfiguration1.json";
+import config from "./amplifyconfiguration.json";
 // routes
 import SearchMain from "./components/mainPage/searchMain";
 import ManageBookings from "./components/manageBookings";

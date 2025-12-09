@@ -1,0 +1,43 @@
+{
+    "aws_project_region": "ca-central-1",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "EmployeeAPI",
+            "endpoint": "https://4l3434cs30.execute-api.ca-central-1.amazonaws.com/dev",
+            "region": "ca-central-1"
+        },
+        {
+            "name": "RoomAPI",
+            "endpoint": "https://xqmkevnwsc.execute-api.ca-central-1.amazonaws.com/dev",
+            "region": "ca-central-1"
+        },
+        {
+            "name": "BookingAPI",
+            "endpoint": "https://y1r7rljup0.execute-api.ca-central-1.amazonaws.com/dev",
+            "region": "ca-central-1"
+        }
+    ],
+    "aws_cognito_identity_pool_id": "ca-central-1:63c2c21d-777a-4edd-8c18-cf467aec681d",
+    "aws_cognito_region": "ca-central-1",
+    "aws_user_pools_id": "ca-central-1_FTxjK4LKe",
+    "aws_user_pools_web_client_id": "7c57n30ipr6pjbf1bjhhkdd2an",
+    "oauth": {},
+    "aws_cognito_username_attributes": [
+        "EMAIL"
+    ],
+    "aws_cognito_social_providers": [],
+    "aws_cognito_signup_attributes": [
+        "EMAIL"
+    ],
+    "aws_cognito_mfa_configuration": "OFF",
+    "aws_cognito_mfa_types": [
+        "SMS"
+    ],
+    "aws_cognito_password_protection_settings": {
+        "passwordPolicyMinLength": 8,
+        "passwordPolicyCharacters": []
+    },
+    "aws_cognito_verification_mechanisms": [
+        "EMAIL"
+    ]
+}
