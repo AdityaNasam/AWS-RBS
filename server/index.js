@@ -39,7 +39,7 @@ app.use("/", bookingRoutes);
 app.use("/", employeeRoutes);
 app.use("/", roomRoutes);
 
-const PORT = 3004;
+const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => {
     console.log(`Unified server running at http://localhost:${PORT}`);
 });
