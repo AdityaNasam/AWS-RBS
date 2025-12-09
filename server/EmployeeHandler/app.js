@@ -266,7 +266,7 @@ app.put("/users/update/:userId", function (req, res) {
 
   async function handleUserUpdate() {
     try {
-      await connection.beginTransaction();
+      await connection.promise().beginTransaction();
       const floor_building_id = await fetchBuildingId(
         floor_number,
         building_number,
@@ -275,7 +275,7 @@ app.put("/users/update/:userId", function (req, res) {
       if (floor_building_id.length > 0) {
         await updateUser(userId, name, role, floor_building_id[0].id);
 
-        await connection.commit();
+        await connection.promise().commit();
         res
           .status(200)
           .json({ success: `Successfully Updated User: ${userId}` });
@@ -293,7 +293,7 @@ app.put("/users/update/:userId", function (req, res) {
         console.log(new_added_fb);
         await updateUser(userId, name, role, new_added_fb);
 
-        await connection.commit();
+        await connection.promise().commit();
         res
           .status(200)
           .json({ success: `Successfully Updated User: ${userId}` });
