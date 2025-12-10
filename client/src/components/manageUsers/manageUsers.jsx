@@ -50,8 +50,8 @@ const ManageUsers = () => {
 
   AWS.config.update({
     region: "ca-central-1",
-    accessKeyId: "AKIARTXDF2SFCKCMUXHY",
-    secretAccessKey: "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",
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
   });
 
 
